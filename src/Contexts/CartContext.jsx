@@ -8,11 +8,12 @@ export let CartContext = createContext();
 
 export default function CartContextProvider({children}){
     let {userToken} = useContext(UserContext);
+    let [userId,setUserId]= useState(null)
     const headers ={
         token: userToken
     }
     function addProductToCart(id) {
-        console.log(id);
+        // console.log(id);
         return axios.post('https://ecommerce.routemisr.com/api/v1/cart',
         {
             "productId": id
@@ -62,7 +63,7 @@ export default function CartContextProvider({children}){
         .catch(err=>err)
     }
     function pay(data,id) {
-        return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=http://localhost:3000`,
+        return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://e-commerce-website-livid.vercel.app`,
         {
             shippingAddress:data
         },
@@ -72,7 +73,7 @@ export default function CartContextProvider({children}){
         .then(res=>res)
         .catch(err=>err)
     }
-    return <CartContext.Provider value={{addProductToCart, getCartProduct,updateProductToCart,deleteCartProduct,clearCartProduct,pay}}>
+    return <CartContext.Provider value={{addProductToCart, getCartProduct,updateProductToCart,deleteCartProduct,clearCartProduct,pay,userId,setUserId}}>
       {children}
     </CartContext.Provider>
 

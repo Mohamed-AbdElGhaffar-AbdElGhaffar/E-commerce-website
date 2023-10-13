@@ -38,7 +38,7 @@ export default function Products() {
 
   async function addToCart(id) {
     let {data} = await addProductToCart(id)
-    console.log("producttocart",data);
+    // console.log("producttocart",data);
     if (data?.status == "success") {
       // toster => react hot toast
       toast.success(" It has been successfully added 🛺 ")
@@ -48,7 +48,7 @@ export default function Products() {
   async function addToWishList(id) {
     if (localStorage.getItem("userToken")) {
       let {data} = await addProductToWishList(id)
-    console.log("producttowishlist",await addProductToWishList(id));
+    // console.log("producttowishlist",await addProductToWishList(id));
     if (data?.status == "success") {
       // toster => react hot toast
       toast.success(" It has been successfully added 💖 ")

@@ -17,11 +17,11 @@ export default function ForgetPassword() {
   async function sendData(values) {
     setIsLoading(true);
     let {data} = await axios.post("https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords",values).catch((err)=>{
-      console.log(err.response.data.message);
+      // console.log(err.response.data.message);
       setErr(err.response.data.message);
       setIsLoading(false);
     })
-    console.log("response",data);
+    // console.log("response",data);
     if (data.statusMsg=="success") {
       setIsLoading(false);
       navigate('/verify-code')

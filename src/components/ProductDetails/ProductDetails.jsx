@@ -24,7 +24,7 @@ export default function ProductDetails() {
 
   async function addToWishList(id) {
     let {data} = await addProductToWishList(id)
-    console.log(data);
+    // console.log(data);
     if (data.status == "success") {
       // toster => react hot toast
       toast.success(" It has been successfully added 💖 ")

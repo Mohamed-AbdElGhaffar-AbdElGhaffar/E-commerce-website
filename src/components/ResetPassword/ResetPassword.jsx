@@ -19,11 +19,11 @@ export default function ResetPassword() {
   async function sendData(values) {
     setIsLoading(true);
     let {data} = await axios.put("https://ecommerce.routemisr.com/api/v1/auth/resetPassword",values).catch((err)=>{
-      console.log(err.response.data.message);
+      // console.log(err.response.data.message);
       setErr(err.response.data.message);
       setIsLoading(false);
     })
-    console.log("response",data);
+    // console.log("response",data);
     if (data?.token) {
       setIsLoading(false);
       localStorage.setItem('userToken',data.token)

@@ -20,9 +20,9 @@ export default function Categories() {
     setSpecificCategoryName(name + " subcategories");
     setSpecificCategoryLoading(true);
     let {data}= await axios.get(`https://ecommerce.routemisr.com/api/v1/categories/${id}/subcategories`);
-    console.log(data);
+    // console.log(data);
     setSpecificCategoryData(data);
-    console.log(specificCategoryData);
+    // console.log(specificCategoryData);
     setSpecificCategoryLoading(false);
   }
   return <>

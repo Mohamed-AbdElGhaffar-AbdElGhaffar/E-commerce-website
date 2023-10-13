@@ -18,7 +18,7 @@ export default function WishList() {
   async function getWishListData() {
     let WishData = await getWishListProduct()
     setWishListData(WishData?.data);
-    console.log("WishListData", WishListData);
+    // console.log("WishListData", WishListData);
     // console.log(localStorage.getItem("userToken"));
   }
 
@@ -40,7 +40,7 @@ export default function WishList() {
   }
 
   useEffect(()=>{
-    console.log(localStorage.getItem("userToken"));
+    // console.log(localStorage.getItem("userToken"));
     
     getWishListData();
     

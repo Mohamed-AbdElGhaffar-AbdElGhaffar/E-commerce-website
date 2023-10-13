@@ -11,11 +11,14 @@ export default function Cart() {
   let navigate = useNavigate();
   let [cartData,setCartData]=useState(null);
   let [isLoading,setIsLoading] = useState(false);
-  let {getCartProduct,updateProductToCart,deleteCartProduct,clearCartProduct} = useContext(CartContext)
+  let {getCartProduct,updateProductToCart,deleteCartProduct,clearCartProduct,setUserId} = useContext(CartContext)
   async function getCartData() {
     let {data} = await getCartProduct()
     setCartData(data);
-    console.log("getCartData = ",data);
+    // console.log("getCartData = ",data);
+    // console.log("cartOwner",data?.data.cartOwner);
+    setUserId(data?.data.cartOwner)
+    localStorage.setItem('userId',data?.data.cartOwner)
   }
   async function updateCount(id,count) {
     if(count>0){

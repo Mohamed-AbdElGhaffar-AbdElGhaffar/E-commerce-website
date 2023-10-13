@@ -1,17 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import style from '../AllOrders/AllOrders.module.css'
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { CirclesWithBar } from 'react-loader-spinner';
-import BannerOne from '../../Assets/Images/slider-image-1.jpeg'
 
 export default function AllOrders() {
   function getAllUserOrder() {
-    return axios.get('https://ecommerce.routemisr.com/api/v1/orders/user/6516cf1653280499b74f543d');
+    return axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${localStorage.getItem('userId')}`);
   }
 
   let {isLoading,isFetching,data} = useQuery('getAllUserOrder', ()=>getAllUserOrder());
-  console.log("This is the order data",data?.data);
+  // console.log("This is the order data",data?.data);
   return <>
     
     {isLoading?<div className='d-flex justify-content-center align-items-center'>

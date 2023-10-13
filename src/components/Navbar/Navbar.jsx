@@ -8,20 +8,23 @@ import { CartContext } from '../../Contexts/CartContext';
 
 
 export default function Navbar() {
-  let {getCartProduct} = useContext(CartContext)
+  let {getCartProduct,setUserId} = useContext(CartContext)
   let {counter,setCounter} = useContext(CounterContext);
   let navigate = useNavigate();
   let {userToken,setUserToken}=useContext(UserContext);
   async function getCartData() {
     let {data} = await getCartProduct();
-    console.log("cart",await getCartProduct());
-    console.log(data?.numOfCartItems);
+    // console.log("cart",await getCartProduct());
+    // console.log(data?.numOfCartItems);
     setCounter(data?.numOfCartItems);
+    localStorage.setItem('userId',data?.data.cartOwner)
   }
   function logout() {
     localStorage.removeItem('userToken')
+    localStorage.removeItem('userId')
           
     setUserToken(null);
+    setUserId(null);
     navigate('/login')
         
   }

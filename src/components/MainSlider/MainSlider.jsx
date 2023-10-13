@@ -19,16 +19,16 @@ export default function MainSlider() {
   return <>
   
     <div className='row g-0 justify-content-center'>
-      <div className='col-md-3'>
+      <div className='col-md-3' height={364}>
         <Slider {...settings}>
           <img src={BannerOne} height={335.58} className='w-100' alt='BannerOne' />
           <img src={BannerTwo} height={335.58} className='w-100' alt='BannerTwo' />
           <img src={BannerThree} height={335.58} className='w-100' alt='BannerThree' />
         </Slider>
       </div>
-      <div className='col-md-3'>
-        <img src={BlogOne} className='w-100' alt="blog-img-1" />
-        <img src={BlogTwo} className='w-100' alt="blog-img-2" />
+      <div className='col-md-3' height={364}>
+        <img src={BlogOne} className='w-100 h-50' alt="blog-img-1" />
+        <img src={BlogTwo} className='w-100 h-50' alt="blog-img-2" />
       </div>
     </div>
 
