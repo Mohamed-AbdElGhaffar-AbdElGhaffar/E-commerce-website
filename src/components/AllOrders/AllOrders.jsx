@@ -3,10 +3,13 @@ import style from '../AllOrders/AllOrders.module.css'
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { CirclesWithBar } from 'react-loader-spinner';
+import jwt_decode from 'jwt-decode';
 
 export default function AllOrders() {
   function getAllUserOrder() {
-    return axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${localStorage.getItem('userId')}`);
+    let token = localStorage.getItem('userToken')
+    let decoded = jwt_decode(token);
+    return axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${decoded.id}`);
   }
 
   let {isLoading,isFetching,data} = useQuery('getAllUserOrder', ()=>getAllUserOrder());

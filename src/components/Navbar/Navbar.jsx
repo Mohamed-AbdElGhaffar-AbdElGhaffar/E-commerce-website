@@ -8,7 +8,7 @@ import { CartContext } from '../../Contexts/CartContext';
 
 
 export default function Navbar() {
-  let {getCartProduct,setUserId} = useContext(CartContext)
+  let {getCartProduct} = useContext(CartContext)
   let {counter,setCounter} = useContext(CounterContext);
   let navigate = useNavigate();
   let {userToken,setUserToken}=useContext(UserContext);
@@ -17,14 +17,11 @@ export default function Navbar() {
     // console.log("cart",await getCartProduct());
     // console.log(data?.numOfCartItems);
     setCounter(data?.numOfCartItems);
-    localStorage.setItem('userId',data?.data.cartOwner)
   }
   function logout() {
     localStorage.removeItem('userToken')
-    localStorage.removeItem('userId')
           
     setUserToken(null);
-    setUserId(null);
     navigate('/login')
         
   }

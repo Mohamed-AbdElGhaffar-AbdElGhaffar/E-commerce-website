@@ -8,7 +8,6 @@ export let CartContext = createContext();
 
 export default function CartContextProvider({children}){
     let {userToken} = useContext(UserContext);
-    let [userId,setUserId]= useState(null)
     const headers ={
         token: userToken
     }
@@ -73,7 +72,7 @@ export default function CartContextProvider({children}){
         .then(res=>res)
         .catch(err=>err)
     }
-    return <CartContext.Provider value={{addProductToCart, getCartProduct,updateProductToCart,deleteCartProduct,clearCartProduct,pay,userId,setUserId}}>
+    return <CartContext.Provider value={{addProductToCart, getCartProduct,updateProductToCart,deleteCartProduct,clearCartProduct,pay}}>
       {children}
     </CartContext.Provider>
 
