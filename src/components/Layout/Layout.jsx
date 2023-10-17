@@ -9,13 +9,9 @@ import { CartContext } from '../../Contexts/CartContext';
 
 export default function Layout() {
   let {setUserToken} = useContext(UserContext);
-  let {setUserId} = useContext(CartContext)
   useEffect(()=>{
     if (localStorage.getItem('userToken') != null) {
       setUserToken(localStorage.getItem('userToken'))
-    }
-    if (localStorage.getItem('userId') != null) {
-      setUserId(localStorage.getItem('userId'))
     }
   })
 
